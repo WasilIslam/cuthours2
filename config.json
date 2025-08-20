@@ -1,0 +1,86 @@
+{
+  "site": {
+    "name": "Cuthours",
+    "tagline": "AI automation that learns your business",
+    "description": "We build intelligent systems that understand your processes and scale your operations."
+  },
+  "hero": {
+    "headline": "Automate your business with AI",
+    "subheading": "Intelligent systems built for your unique processes",
+    "cta_primary": "Try Cuthours for free",
+    "cta_secondary": "View Case Studies", 
+    "cta_tertiary": "Schedule Call"
+  },
+  "stats": {
+    "projects": "30+",
+    "projects_label": "Projects Delivered",
+    "efficiency": "85%", 
+    "efficiency_label": "Average Efficiency Gain",
+    "uptime": "99.9%",
+    "uptime_label": "System Reliability"
+  },
+  "case_studies": [
+    {
+      "client": "AI-gen",
+      "description": "Automated course generation tool used by 30+ teachers",
+      "metric": "75%",
+      "metric_label": "Time Reduction",
+      "image": "school_art2.png"
+    },
+    {
+      "client": "E-commerce Company", 
+      "description": "Built AI-powered inventory management system for real-time optimization",
+      "image": "https://images.unsplash.com/photo-1754910567873-91ae04195d61?q=80&w=1171&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    },
+    {
+      "client": "Consulting Firm",
+      "description": "Developed automated report generation saving 20 hours per week",
+      "image": "https://images.unsplash.com/photo-1534723328310-e82dad3ee43f?q=80&w=736&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    }
+  ],
+  "clients": {
+    "title": "We have worked with",
+    "subtitle": "We've helped companies across industries streamline their operations",
+    "list": ["Carbonfootprint Ltd", "Link-Heath", "DialedinBookKeeping", "Birchgold"]
+  },
+  "services": {
+    "title": "How we work with you",
+    "subtitle": "Every business is different. We build solutions that fit your specific needs and goals.",
+    "categories": [
+      {
+        "name": "Process Automation",
+        "time_saved": "6 hrs",
+        "description": "Workflow optimization"
+      },
+      {
+        "name": "Data Analysis", 
+        "time_saved": "4 hrs",
+        "description": "Intelligent insights"
+      },
+      {
+        "name": "Integration",
+        "time_saved": "7 hrs", 
+        "description": "System connectivity"
+      },
+      {
+        "name": "Custom AI",
+        "time_saved": "3 hrs",
+        "description": "Tailored solutions"
+      },
+      {
+        "name": "Optimization",
+        "time_saved": "2 hrs",
+        "description": "Performance tuning"
+      },
+      {
+        "name": "Support",
+        "time_saved": "5 hrs",
+        "description": "Ongoing assistance"
+      }
+    ]
+  },
+  "trust": {
+    "title": "Built for reliability",
+    "subtitle": "Our systems are designed to work consistently and scale with your growth."
+  }
+}
