@@ -3,13 +3,13 @@ export const navigationConfig = {
   pages: [
     { href: "/", label: "Home", id: "home" },
     { href: "/services", label: "Services", id: "services" },
-    { href: "/chat", label: "Cuthours.ai", id: "chat" },
+    { href: "/ai", label: "Cuthours.ai", id: "chat" },
     { href: "/contact", label: "Contact", id: "contact" },
     { href: "/login", label: "Log in", id: "login" },
   ],
   cta: {
     label: "Try Cuthours for Free",
-    href: "/chat"
+    href: "/ai"
   }
 };
 
