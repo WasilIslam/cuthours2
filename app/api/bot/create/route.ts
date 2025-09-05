@@ -111,41 +111,81 @@ async function fetchAndExtractHrefs(url: string): Promise<string[]> {
 
 async function analyzePathsWithAI(baseUrl: string, hrefs: string[]): Promise<PathOption[]> {
   try {
-    // Always include home page first
-    const allPaths = hrefs.includes('/') ? hrefs : ['/', ...hrefs];
+    // Always include home page first, then sort all paths by length (shortest first)
+    const allPaths = Array.from(new Set(hrefs.includes('/') ? hrefs : ['/', ...hrefs]));
+    const sortedPaths = allPaths.sort((a, b) => a.length - b.length);
 
-    const commonPages = ['/', '/about', '/contact', '/services', '/products', '/blog'];
-    const pathOptions: PathOption[] = [];
+    // Take at least 100 paths (or all if less than 100)
+    const pathsToAnalyze = sortedPaths.slice(0, Math.max(100, sortedPaths.length));
 
-    // Add recommended pages that exist (always include home)
-    commonPages.forEach(page => {
-      if (allPaths.includes(page)) {
-        pathOptions.push({
-          path: page,
-          title: page === '/' ? 'Home' : page.charAt(1).toUpperCase() + page.slice(2),
-          recommended: true
+    // Send to xAI to get the top 2 most informative paths
+    const XAI_API_URL = 'https://api.x.ai/v1/chat/completions';
+    const XAI_API_KEY = process.env.GROK_API_KEY || process.env.XAI_API_KEY;
+
+    let topPaths: string[] = ['/', '/about']; // Default fallback
+
+    if (XAI_API_KEY) {
+      try {
+        const response = await fetch(XAI_API_URL, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${XAI_API_KEY}`,
+          },
+          body: JSON.stringify({
+            model: 'grok-2-1212',
+            messages: [
+              {
+                role: 'system',
+                content: `You are a website analyzer. Given a list of website paths, identify the TOP 2 paths that would contain the most valuable information about the site (like about, contact, services, company info, etc.). Return ONLY a JSON array with exactly 2 path strings.`
+              },
+              {
+                role: 'user',
+                content: `Here are the website paths sorted by length (shortest first):
+
+${pathsToAnalyze.map((path, index) => `${index + 1}. ${path}`).join('\n')}
+
+Return the TOP 2 paths that would have the most site information (about, contact, services, etc.):`
+              }
+            ],
+            max_tokens: 100,
+            temperature: 0.3,
+          }),
         });
+
+        if (response.ok) {
+          const data = await response.json();
+          const aiResponse = data.choices[0]?.message?.content || '[]';
+
+          try {
+            const parsedPaths = JSON.parse(aiResponse);
+            if (Array.isArray(parsedPaths) && parsedPaths.length >= 2) {
+              topPaths = parsedPaths.slice(0, 2);
+            }
+          } catch (parseError) {
+            console.error('Failed to parse AI response for top paths:', parseError);
+          }
+        }
+      } catch (error) {
+        console.error('Error getting top paths from xAI:', error);
       }
+    }
+
+    // Create path options from all paths (at least 100)
+    const pathOptions: PathOption[] = pathsToAnalyze.map(path => {
+      const isRecommended = topPaths.includes(path);
+      const title = path === '/'
+        ? 'Home'
+        : path.split('/').filter(Boolean).pop() || 'Page';
+
+      return {
+        path,
+        title: title.charAt(0).toUpperCase() + title.slice(1),
+        recommended: isRecommended
+      };
     });
 
-    // Add other available paths, sorted by path length (shorter first)
-    const otherPaths = allPaths
-      .filter(href => !commonPages.includes(href))
-      .sort((a, b) => a.length - b.length) // Sort by length
-      .slice(0, 15); // Limit to 15 additional paths
-
-    otherPaths.forEach(href => {
-      if (!pathOptions.find(p => p.path === href)) {
-        const title = href.split('/').filter(Boolean).pop() || 'Page';
-        pathOptions.push({
-          path: href,
-          title: title.charAt(0).toUpperCase() + title.slice(1),
-          recommended: false
-        });
-      }
-    });
-
-    // Sort: recommended first, then by path length
+    // Sort: AI recommended first, then by path length
     return pathOptions.sort((a, b) => {
       if (a.recommended && !b.recommended) return -1;
       if (!a.recommended && b.recommended) return 1;

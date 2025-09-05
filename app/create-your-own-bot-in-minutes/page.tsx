@@ -240,8 +240,8 @@ export default function CreateBotPage() {
                 </h2>
                 <div className="flex items-center justify-between mb-4">
                   <p className="font-simple text-slate-600">
-                    AI has analyzed your website and recommends these pages for the best chatbot experience.
-                    Recommended pages are already selected.
+                    AI analyzed your website and selected the top 2 most informative pages.
+                    These are already selected for the best chatbot experience.
                   </p>
                   <div className="text-sm text-slate-500 bg-slate-100 px-3 py-1 rounded-full">
                     {selectedPaths.length}/3 pages selected
@@ -250,7 +250,7 @@ export default function CreateBotPage() {
               </div>
 
               {/* Search Bar */}
-              {pathOptions.length > 8 && (
+              {pathOptions.length > 10 && (
                 <div className="mb-6">
                   <input
                     type="text"
@@ -262,7 +262,7 @@ export default function CreateBotPage() {
                 </div>
               )}
 
-              <div className={`mb-8 ${pathOptions.length > 8 ? 'max-h-96 overflow-y-auto' : 'space-y-3'}`}>
+              <div className={`mb-8 ${pathOptions.length > 10 ? 'max-h-96 overflow-y-auto' : 'space-y-3'}`}>
                 {pathOptions
                   .filter(option =>
                     searchQuery === '' ||
@@ -299,7 +299,7 @@ export default function CreateBotPage() {
                         </div>
                         {option.recommended && (
                           <span className="bg-green-100 text-green-800 px-2 py-1 rounded-full text-xs font-medium">
-                            Recommended by AI
+                            Top AI Pick
                           </span>
                         )}
                       </div>
