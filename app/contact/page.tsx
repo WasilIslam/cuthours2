@@ -1,4 +1,5 @@
 import Layout from "@/components/Layout";
+import ContactForm from "@/components/ContactForm";
 
 export default function Contact() {
   return (
@@ -15,64 +16,7 @@ export default function Contact() {
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
               {/* Contact Form */}
-              <div className="space-y-8">
-                <h2 className="font-highlight text-2xl font-bold text-black">
-                  Get Started Today
-                </h2>
-                
-                <form className="space-y-6">
-                  <div>
-                    <label className="block font-simple text-sm font-medium text-black mb-2">
-                      Full Name
-                    </label>
-                    <input 
-                      type="text" 
-                      className="w-full px-4 py-3 border border-[var(--color-border)] rounded-lg font-simple focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent"
-                      placeholder="John Doe"
-                    />
-                  </div>
-                  
-                  <div>
-                    <label className="block font-simple text-sm font-medium text-black mb-2">
-                      Email Address
-                    </label>
-                    <input 
-                      type="email" 
-                      className="w-full px-4 py-3 border border-[var(--color-border)] rounded-lg font-simple focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent"
-                      placeholder="john@company.com"
-                    />
-                  </div>
-                  
-                  <div>
-                    <label className="block font-simple text-sm font-medium text-black mb-2">
-                      Company
-                    </label>
-                    <input 
-                      type="text" 
-                      className="w-full px-4 py-3 border border-[var(--color-border)] rounded-lg font-simple focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent"
-                      placeholder="Your Company"
-                    />
-                  </div>
-                  
-                  <div>
-                    <label className="block font-simple text-sm font-medium text-black mb-2">
-                      Project Details
-                    </label>
-                    <textarea 
-                      rows={4}
-                      className="w-full px-4 py-3 border border-[var(--color-border)] rounded-lg font-simple focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent"
-                      placeholder="Tell us about your automation needs..."
-                    />
-                  </div>
-                  
-                  <button 
-                    type="submit"
-                    className="w-full bg-black text-white px-8 py-4 rounded-lg font-simple text-lg hover:bg-gray-800 transition-colors"
-                  >
-                    Request a Demo
-                  </button>
-                </form>
-              </div>
+              <ContactForm />
 
               {/* Contact Information */}
               <div className="space-y-8">
@@ -83,8 +27,8 @@ export default function Contact() {
                 <div className="space-y-6">
                   <div>
                     <h3 className="font-simple text-sm font-medium text-black mb-2">Email</h3>
-                    <a href="mailto:team@cuthours.ai" className="font-simple text-lg text-[var(--color-accent)] hover:text-black transition-colors">
-                      team@cuthours.ai
+                    <a href="mailto:hi@cuthours.com" className="font-simple text-lg text-[var(--color-accent)] hover:text-black transition-colors">
+                      hi@cuthours.com
                     </a>
                   </div>
                   
@@ -95,12 +39,6 @@ export default function Contact() {
                     </p>
                   </div>
                   
-                  <div>
-                    <h3 className="font-simple text-sm font-medium text-black mb-2">Office Hours</h3>
-                    <p className="font-simple text-[var(--color-secondary)]">
-                      Monday - Friday: 9:00 AM - 6:00 PM EST
-                    </p>
-                  </div>
                 </div>
 
                 <div className="pt-8 border-t border-[var(--color-border)]">

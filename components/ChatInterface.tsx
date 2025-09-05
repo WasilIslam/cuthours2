@@ -8,11 +8,19 @@ interface Message {
   timestamp: Date;
 }
 
+interface APIResponse {
+  response?: string;
+  error?: string;
+  message?: string;
+  remaining?: number;
+  resetTime?: string;
+}
+
 export default function ChatInterface() {
   const [messages, setMessages] = useState<Message[]>([
     {
       id: "1",
-      text: "Hello! I'm your demo AI assistant. This is just a demonstration of what Cuthours can build for you. Ask me anything about AI automation!",
+      text: "Hello! I'm your AI assistant. Ask me anything about automation and business processes.",
       isUser: false,
       timestamp: new Date()
     }
@@ -52,20 +60,38 @@ export default function ChatInterface() {
         body: JSON.stringify({ message: inputMessage }),
       });
 
-      const data = await response.json();
-      
-      const aiMessage: Message = {
-        id: (Date.now() + 1).toString(),
-        text: data.response || "Sorry, I couldn't process your request. This is just a demo - contact Cuthours for real implementations!",
-        isUser: false,
-        timestamp: new Date()
-      };
+      const data: APIResponse = await response.json();
 
-      setMessages(prev => [...prev, aiMessage]);
+      if (response.status === 429) {
+        // Rate limit exceeded
+        const aiMessage: Message = {
+          id: (Date.now() + 1).toString(),
+          text: data.message || "Rate limit exceeded. Please try again later.",
+          isUser: false,
+          timestamp: new Date()
+        };
+        setMessages(prev => [...prev, aiMessage]);
+      } else if (data.response) {
+        const aiMessage: Message = {
+          id: (Date.now() + 1).toString(),
+          text: data.response,
+          isUser: false,
+          timestamp: new Date()
+        };
+        setMessages(prev => [...prev, aiMessage]);
+      } else {
+        const aiMessage: Message = {
+          id: (Date.now() + 1).toString(),
+          text: "Sorry, I couldn't process your request.",
+          isUser: false,
+          timestamp: new Date()
+        };
+        setMessages(prev => [...prev, aiMessage]);
+      }
     } catch (error) {
       const errorMessage: Message = {
         id: (Date.now() + 1).toString(),
-        text: "Sorry, there was an error. This is just a demo - contact Cuthours for real implementations!",
+        text: "Sorry, there was an error connecting to the server.",
         isUser: false,
         timestamp: new Date()
       };
@@ -83,71 +109,55 @@ export default function ChatInterface() {
   };
 
   return (
-    <div className="space-y-6">
+    <div className="max-w-3xl mx-auto">
       {/* Messages Container */}
-      <div className="h-96 overflow-y-auto space-y-4 mb-6 p-4 bg-gray-50 rounded-xl">
-        {messages.map((message) => (
-          <div key={message.id} className={`flex items-start space-x-3 ${message.isUser ? 'justify-end' : ''}`}>
-            {!message.isUser && (
-              <div className="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center flex-shrink-0">
-                <FaRobot className="w-5 h-5 text-white" />
-              </div>
-            )}
-            <div className={`rounded-2xl p-4 max-w-md ${
-              message.isUser 
-                ? 'bg-black text-white' 
-                : 'bg-white text-gray-800 border border-gray-200'
-            }`}>
-              <p className="font-simple leading-relaxed">{message.text}</p>
-            </div>
-            {message.isUser && (
-              <div className="w-10 h-10 bg-gray-500 rounded-full flex items-center justify-center flex-shrink-0">
-                <FaUser className="w-5 h-5 text-white" />
-              </div>
-            )}
-          </div>
-        ))}
-        {isLoading && (
-          <div className="flex items-start space-x-3">
-            <div className="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center flex-shrink-0">
-              <FaRobot className="w-5 h-5 text-white" />
-            </div>
-            <div className="bg-white rounded-2xl p-4 border border-gray-200">
-              <div className="flex space-x-2">
-                <div className="w-3 h-3 bg-blue-500 rounded-full"></div>
-                <div className="w-3 h-3 bg-blue-500 rounded-full"></div>
-                <div className="w-3 h-3 bg-blue-500 rounded-full"></div>
+      <div className="bg-white border border-slate-200 rounded-2xl shadow-sm h-96 overflow-hidden mb-4">
+        <div className="h-full overflow-y-auto p-6 space-y-4">
+          {messages.map((message) => (
+            <div key={message.id} className={`flex ${message.isUser ? 'justify-end' : 'justify-start'}`}>
+              <div className={`max-w-xs px-4 py-3 rounded-2xl ${
+                message.isUser
+                  ? 'bg-slate-900 text-white rounded-br-sm'
+                  : 'bg-slate-100 text-slate-800 rounded-bl-sm'
+              }`}>
+                <p className="font-simple text-sm leading-relaxed">{message.text}</p>
               </div>
             </div>
-          </div>
-        )}
-        <div ref={messagesEndRef} />
+          ))}
+
+          {isLoading && (
+            <div className="flex justify-start">
+              <div className="bg-slate-100 rounded-2xl rounded-bl-sm px-4 py-3">
+                <div className="flex space-x-1">
+                  <div className="w-2 h-2 bg-slate-400 rounded-full animate-bounce"></div>
+                  <div className="w-2 h-2 bg-slate-400 rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
+                  <div className="w-2 h-2 bg-slate-400 rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
+                </div>
+              </div>
+            </div>
+          )}
+          <div ref={messagesEndRef} />
+        </div>
       </div>
 
       {/* Input Area */}
-      <div className="bg-gray-50 rounded-xl p-6">
-        <div className="flex space-x-4">
-          <input 
-            type="text" 
-            value={inputMessage}
-            onChange={(e) => setInputMessage(e.target.value)}
-            onKeyPress={handleKeyPress}
-            placeholder="Ask me about AI automation, business processes, or Cuthours services..."
-            className="flex-1 px-6 py-4 border border-gray-300 rounded-xl font-simple focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white"
-            disabled={isLoading}
-          />
-          <button 
-            onClick={sendMessage}
-            disabled={isLoading || !inputMessage.trim()}
-            className="bg-blue-600 text-white px-8 py-4 rounded-xl font-simple hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed flex items-center space-x-3"
-          >
-            <FaPaperPlane />
-            <span>Send</span>
-          </button>
-        </div>
-        <p className="font-simple text-sm text-gray-500 mt-3 text-center">
-          💡 This is a demo. Contact Cuthours for real AI automation solutions.
-        </p>
+      <div className="flex space-x-3">
+        <input
+          type="text"
+          value={inputMessage}
+          onChange={(e) => setInputMessage(e.target.value)}
+          onKeyPress={handleKeyPress}
+          placeholder="Type your message..."
+          className="flex-1 px-4 py-3 border border-slate-300 rounded-xl font-simple focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white text-sm"
+          disabled={isLoading}
+        />
+        <button
+          onClick={sendMessage}
+          disabled={isLoading || !inputMessage.trim()}
+          className="bg-blue-600 hover:bg-blue-700 disabled:bg-slate-300 text-white px-6 py-3 rounded-xl font-simple disabled:cursor-not-allowed transition-colors"
+        >
+          <FaPaperPlane className="w-4 h-4" />
+        </button>
       </div>
     </div>
   );
