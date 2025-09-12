@@ -1,0 +1,13 @@
+User-agent: *
+Allow: /
+
+# Disallow dashboard and admin areas
+Disallow: /dashboard/
+Disallow: /dashboard/admin/
+Disallow: /login
+
+# Allow specific public files
+Allow: /api/
+
+# Sitemap
+Sitemap: https://cuthours.com/sitemap.xml
