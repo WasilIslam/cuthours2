@@ -1,6 +1,6 @@
 "use client";
 
-import { navigationConfig } from "@/lib/config";
+import config from "@/config.json";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { useState } from "react";
@@ -19,7 +19,7 @@ export default function Layout({ children }: LayoutProps) {
       <div className="lg:hidden border-b border-[var(--color-border)] px-4 py-4 bg-white relative">
         <div className="flex items-center justify-between">
           <Link href="/" className="font-highlight text-xl font-bold text-black">
-            {navigationConfig.brand}
+            {config.navigation.brand}
           </Link>
           <button 
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -37,7 +37,7 @@ export default function Layout({ children }: LayoutProps) {
         {isMobileMenuOpen && (
           <div className="absolute top-full left-0 right-0 bg-white border-b border-[var(--color-border)] shadow-lg z-20">
             <nav className="px-4 py-4 space-y-3">
-              {navigationConfig.pages.filter(page => page.id !== 'login').map((page) => (
+              {config.navigation.pages.filter(page => page.id !== 'login').map((page) => (
                 <Link 
                   key={page.id} 
                   href={page.href} 
@@ -69,10 +69,10 @@ export default function Layout({ children }: LayoutProps) {
       <div className="fixed left-0 top-0 h-full w-48 bg-white border-r border-[var(--color-border)] z-10 hidden lg:block">
         <nav className="px-4 pt-6">
           <Link href="/" className="font-simple text-xl font-medium text-black mb-10 block">
-            {navigationConfig.brand}
+            {config.navigation.brand}
           </Link>
           <div className="space-y-2 font-simple text-[var(--color-secondary)]">
-            {navigationConfig.pages.filter(page => page.id !== 'login').map((page) => (
+            {config.navigation.pages.filter(page => page.id !== 'login').map((page) => (
               <Link 
                 key={page.id} 
                 href={page.href} 

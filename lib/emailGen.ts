@@ -1,4 +1,4 @@
-import { siteConfig } from './config';
+import config from '@/config.json';
 
 interface ContactFormData {
   fullName: string;
@@ -31,8 +31,8 @@ export function generateAdminEmail(contactData: ContactFormData): string {
 <body>
   <div class="container">
     <div class="header">
-      <h1 class="brand">${siteConfig.name}</h1>
-      <p class="tagline">${siteConfig.tagline}</p>
+      <h1 class="brand">${config.site.name}</h1>
+      <p class="tagline">${config.site.tagline}</p>
     </div>
 
     <div class="content">
@@ -62,7 +62,7 @@ export function generateAdminEmail(contactData: ContactFormData): string {
     </div>
 
     <div class="footer">
-      <p>${siteConfig.description}</p>
+      <p>${config.site.description}</p>
     </div>
   </div>
 </body>
@@ -77,7 +77,7 @@ export function generateRequesterEmail(contactData: ContactFormData): string {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Thank you for contacting ${siteConfig.name}</title>
+  <title>Thank you for contacting ${config.site.name}</title>
   <style>
     body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; margin: 0; padding: 0; background-color: #ffffff; color: #000000; }
     .container { max-width: 600px; margin: 0 auto; padding: 40px 20px; }
@@ -95,8 +95,8 @@ export function generateRequesterEmail(contactData: ContactFormData): string {
 <body>
   <div class="container">
     <div class="header">
-      <h1 class="brand">${siteConfig.name}</h1>
-      <p class="tagline">${siteConfig.tagline}</p>
+      <h1 class="brand">${config.site.name}</h1>
+      <p class="tagline">${config.site.tagline}</p>
     </div>
 
     <div class="content">
@@ -105,7 +105,7 @@ export function generateRequesterEmail(contactData: ContactFormData): string {
       </div>
 
       <div class="section">
-        <p>Thank you for reaching out to ${siteConfig.name}. We've received your inquiry about:</p>
+        <p>Thank you for reaching out to ${config.site.name}. We've received your inquiry about:</p>
 
         <div style="background-color: #f8f8f8; padding: 15px; border-radius: 4px; margin: 15px 0;">
           <strong>${contactData.company}</strong><br>
@@ -125,8 +125,10 @@ export function generateRequesterEmail(contactData: ContactFormData): string {
       </div>
 
       <div class="stats">
-        <h3 style="margin: 0 0 15px 0;">Why choose ${siteConfig.name}?</h3>
-        ${siteConfig.stats.map(stat => `<div class="stat-item"><strong>${stat.value}</strong> ${stat.label}</div>`).join('')}
+        <h3 style="margin: 0 0 15px 0;">Why choose ${config.site.name}?</h3>
+        <div class="stat-item"><strong>${config.stats.projects}</strong> ${config.stats.projects_label}</div>
+        <div class="stat-item"><strong>${config.stats.efficiency}</strong> ${config.stats.efficiency_label}</div>
+        <div class="stat-item"><strong>${config.stats.uptime}</strong> ${config.stats.uptime_label}</div>
       </div>
 
       <div class="section">
@@ -135,7 +137,7 @@ export function generateRequesterEmail(contactData: ContactFormData): string {
     </div>
 
     <div class="footer">
-      <p>${siteConfig.description}</p>
+      <p>${config.site.description}</p>
     </div>
   </div>
 </body>

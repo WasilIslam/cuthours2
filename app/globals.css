@@ -42,3 +42,30 @@ body {
 .font-simple {
   font-family: var(--font-simple), system-ui, sans-serif;
 }
+
+/* Client logo optimizations */
+.client-logo {
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  will-change: filter, opacity, transform;
+}
+
+.client-logo:hover {
+  transform: translateZ(0); /* Force hardware acceleration */
+}
+
+/* Preload critical client images */
+@media (min-width: 768px) {
+  .client-section::before {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    background-image: 
+      url('/clients/cfp.gif'),
+      url('/clients/link-health.jpeg'),
+      url('/clients/it360.png'),
+      url('/clients/birchgold.png');
+    background-size: 0 0;
+  }
+}

@@ -1,13 +1,28 @@
 {
   "site": {
     "name": "Cuthours",
-    "tagline": "AI automation that learns your business",
+    "tagline": "Building intelligent systems.",
     "description": "We build intelligent systems that understand your processes and scale your operations."
+  },
+  "navigation": {
+    "brand": "Cuthours",
+    "pages": [
+      { "href": "/", "label": "Home", "id": "home" },
+      { "href": "/services", "label": "Services", "id": "services" },
+      { "href": "/projects", "label": "Projects", "id": "projects" },
+      { "href": "/ai", "label": "Cuthours.ai", "id": "chat" },
+      { "href": "/contact", "label": "Contact", "id": "contact" },
+      { "href": "/login", "label": "Log in", "id": "login" }
+    ],
+    "cta": {
+      "label": "Try Cuthours for Free",
+      "href": "/ai"
+    }
   },
   "hero": {
     "headline": "Automate your business with AI",
     "subheading": "Intelligent systems built for your unique processes",
-    "cta_primary": "Try Cuthours for free",
+    "cta_primary": "Schedule a Call",
     "cta_secondary": "View Case Studies", 
     "cta_tertiary": "Schedule Call"
   },
@@ -23,64 +38,275 @@
     {
       "client": "AI-gen",
       "description": "Automated course generation tool used by 30+ teachers",
-      "metric": "75%",
-      "metric_label": "Time Reduction",
       "image": "school_art2.webp"
     },
     {
-      "client": "E-commerce Company", 
+      "client": "Automating BookingKoala and Jobber", 
       "description": "Built AI-powered inventory management system for real-time optimization",
-      "image": "https://images.unsplash.com/photo-1754910567873-91ae04195d61?q=80&w=1171&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+      "image": "https://images.unsplash.com/photo-1586448317606-cb1ec00298fc?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
     },
     {
-      "client": "Consulting Firm",
-      "description": "Developed automated report generation saving 20 hours per week",
-      "image": "https://images.unsplash.com/photo-1534723328310-e82dad3ee43f?q=80&w=736&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+      "client": "Carbonfootprint store",
+      "description": "Developed carbonfootprint store to buy carbon credits.",
+      "image": "https://images.unsplash.com/photo-1661177408925-c4229d256f10?q=80&w=1975&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
     }
   ],
   "clients": {
     "title": "We have worked with",
     "subtitle": "We've helped companies across industries streamline their operations",
-    "list": ["Carbonfootprint Ltd", "Link-Heath", "DialedinBookKeeping", "Birchgold"]
+    "show_images": true,
+    "list": ["Carbonfootprint Ltd", "Link-Heath", "IT360 NZ", "Birchgold"],
+    "list_links":["https://carbonfootprint.com", "https://link-health.org", "https://it360.co.nz", "https://birchgold.com"],
+    "list_images": ["/clients/cfp.gif", "/clients/link-health.jpeg", "/clients/it360.png", "/clients/birchgold.png"]
   },
   "services": {
-    "title": "How we work with you",
-    "subtitle": "Every business is different. We build solutions that fit your specific needs and goals.",
+    "title": "Our Services",
+    "subtitle": "We specialize in AI automation and modern web development to transform your business operations.",
     "categories": [
       {
-        "name": "Process Automation",
-        "time_saved": "6 hrs",
-        "description": "Workflow optimization"
+        "title": "AI Automation",
+        "description": "Intelligent workflows that handle repetitive tasks, analyze data, and make decisions automatically.",
+        "icon": "ai",
+        "items": [
+          "Process Automation & Workflow Optimization",
+          "Data Analysis & Business Intelligence",
+          "Custom AI Solutions & Integration",
+          "Document Processing & Analysis"
+        ]
       },
       {
-        "name": "Data Analysis", 
-        "time_saved": "4 hrs",
-        "description": "Intelligent insights"
+        "title": "Modern Websites",
+        "description": "Beautiful, fast, and scalable web applications built with cutting-edge technologies.",
+        "icon": "web",
+        "items": [
+          "Responsive Web Design & Development",
+          "Performance Optimization & SEO",
+          "E-commerce & Business Platforms",
+          "API Integration & Custom Solutions"
+        ]
+      }
+    ],
+    "process": {
+      "title": "Our Process",
+      "steps": [
+        {
+          "number": "01",
+          "title": "Discovery",
+          "description": "We analyze your current processes and identify automation opportunities."
+        },
+        {
+          "number": "02",
+          "title": "Design",
+          "description": "We create custom solutions tailored to your specific business needs."
+        },
+        {
+          "number": "03",
+          "title": "Deploy",
+          "description": "We implement and support your solution for seamless integration."
+        }
+      ]
+    }
+  },
+  "people": {
+    "title": "Our Team",
+    "subtitle": "Meet the experts behind our innovative solutions.",
+    "team": [
+      {
+        "name": "Wasil Islam",
+        "role": "Founder & CEO",
+        "bio": "Full-stack engineer with a deep interest in AI and automation. Wasil has a passion for building from quick MVPs to scale up.",
+        "image": "/people/wasil.jpeg",
+        "linkedin": "https://linkedin.com/in/wasilislam"
       },
       {
-        "name": "Integration",
-        "time_saved": "7 hrs", 
-        "description": "System connectivity"
+        "name": "Muhammad Shaheer",
+        "role": "Full-stack Developer",
+        "bio": "Full-stack developer focused on modern web technologies and scalable architectures.",
+        "image": "/team/alex.jpg",
+        "linkedin": "https://linkedin.com/in/alexchen"
       },
       {
-        "name": "Custom AI",
-        "time_saved": "3 hrs",
-        "description": "Tailored solutions"
+        "name": "Muhammad Saboor",
+        "role": "AI Research Engineer",
+        "bio": "AI Research Engineer with a passion for building intelligent systems.",
+        "image": "/team/sarah.jpg",
+        "linkedin": "https://linkedin.com/in/sarahjohnson"
       },
       {
-        "name": "Optimization",
-        "time_saved": "2 hrs",
-        "description": "Performance tuning"
-      },
-      {
-        "name": "Support",
-        "time_saved": "5 hrs",
-        "description": "Ongoing assistance"
+        "name": "Abdul Aziz",
+        "role": "Automation Tester",
+        "bio": "Testing is very important in the world of software development. Abdul Aziz makes sure that the automation is working as expected.",
+        "image": "/team/mike.jpg",
+        "linkedin": "https://linkedin.com/in/mikerodriguez"
       }
     ]
   },
   "trust": {
     "title": "Built for reliability",
     "subtitle": "Our systems are designed to work consistently and scale with your growth."
+  },
+  "projects": {
+    "title": "Our Projects",
+    "subtitle": "Explore our portfolio of innovative solutions and successful implementations.",
+    "categories": [
+      {
+        "id": "ai-automation",
+        "title": "AI Automation",
+        "description": "Intelligent systems that transform business operations"
+      },
+      {
+        "id": "web-development", 
+        "title": "Web Development",
+        "description": "Modern, scalable web applications"
+      },
+      {
+        "id": "data-analytics",
+        "title": "Data Analytics",
+        "description": "Insights-driven solutions for better decision making"
+      }
+    ],
+    "items": [
+      {
+        "id": "ai-course-generator",
+        "title": "AI Course Generator",
+        "category": "ai-automation",
+        "description": "Automated course generation tool that helps educators create comprehensive learning materials in minutes instead of hours.",
+        "technologies": ["OpenAI GPT-4", "React", "Node.js", "MongoDB"],
+        "features": [
+          "Intelligent content generation",
+          "Curriculum planning automation",
+          "Multi-format export capabilities",
+          "Real-time collaboration tools"
+        ],
+        "metrics": {
+          "users": "30+ Teachers",
+          "time_saved": "85% reduction in course prep time",
+          "satisfaction": "4.8/5 user rating"
+        },
+        "image": "/school_art2.webp",
+        "status": "Live",
+        "client": "Educational Institutions"
+      },
+      {
+        "id": "inventory-management",
+        "title": "BookingKoala & Jobber Integration",
+        "category": "ai-automation",
+        "description": "AI-powered inventory management system that provides real-time optimization and seamless integration between booking and job management platforms.",
+        "technologies": ["Python", "FastAPI", "PostgreSQL", "Redis", "React"],
+        "features": [
+          "Real-time inventory tracking",
+          "Automated booking synchronization",
+          "Predictive stock management",
+          "Custom reporting dashboard"
+        ],
+        "metrics": {
+          "efficiency": "40% improvement in inventory turnover",
+          "accuracy": "99.2% booking accuracy",
+          "cost_savings": "$50K annual savings"
+        },
+        "image": "https://images.unsplash.com/photo-1586448317606-cb1ec00298fc?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "status": "Live",
+        "client": "Service Management Companies"
+      },
+      {
+        "id": "carbon-footprint-store",
+        "title": "Carbon Footprint Store",
+        "category": "web-development",
+        "description": "E-commerce platform for purchasing verified carbon credits with transparent tracking and impact visualization.",
+        "technologies": ["Next.js", "Stripe", "Supabase", "Tailwind CSS"],
+        "features": [
+          "Verified carbon credit marketplace",
+          "Impact tracking dashboard",
+          "Secure payment processing",
+          "Certificate generation"
+        ],
+        "metrics": {
+          "credits_sold": "10,000+ carbon credits",
+          "co2_offset": "500 tons CO2 offset",
+          "growth": "200% month-over-month growth"
+        },
+        "image": "https://images.unsplash.com/photo-1661177408925-c4229d256f10?q=80&w=1975&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "status": "Live",
+        "client": "Environmental Organizations"
+      },
+      {
+        "id": "healthcare-analytics",
+        "title": "Healthcare Data Analytics Platform",
+        "category": "data-analytics",
+        "description": "Comprehensive analytics platform for healthcare providers to track patient outcomes and optimize treatment protocols.",
+        "technologies": ["Python", "Pandas", "Plotly", "Django", "PostgreSQL"],
+        "features": [
+          "Patient outcome tracking",
+          "Treatment protocol optimization",
+          "Predictive health modeling",
+          "HIPAA-compliant data handling"
+        ],
+        "metrics": {
+          "patients": "5,000+ patients tracked",
+          "outcomes": "25% improvement in treatment outcomes",
+          "efficiency": "60% reduction in analysis time"
+        },
+        "image": "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?q=80&w=2031&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "status": "In Development",
+        "client": "Healthcare Providers"
+      },
+      {
+        "id": "fintech-dashboard",
+        "title": "Financial Analytics Dashboard",
+        "category": "web-development",
+        "description": "Real-time financial dashboard for investment firms with advanced charting and portfolio management capabilities.",
+        "technologies": ["React", "D3.js", "WebSocket", "Express.js", "Redis"],
+        "features": [
+          "Real-time market data visualization",
+          "Portfolio performance tracking",
+          "Risk assessment tools",
+          "Automated reporting"
+        ],
+        "metrics": {
+          "assets": "$50M+ assets under management",
+          "performance": "15% improvement in portfolio performance",
+          "users": "200+ active traders"
+        },
+        "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "status": "Live",
+        "client": "Investment Firms"
+      },
+      {
+        "id": "supply-chain-optimizer",
+        "title": "Supply Chain Optimization AI",
+        "category": "ai-automation",
+        "description": "Machine learning system that optimizes supply chain logistics and predicts demand patterns for manufacturing companies.",
+        "technologies": ["TensorFlow", "Python", "Apache Kafka", "Kubernetes", "PostgreSQL"],
+        "features": [
+          "Demand forecasting",
+          "Route optimization",
+          "Supplier risk assessment",
+          "Inventory level optimization"
+        ],
+        "metrics": {
+          "cost_reduction": "30% reduction in logistics costs",
+          "accuracy": "92% demand forecast accuracy",
+          "efficiency": "45% improvement in delivery times"
+        },
+        "image": "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "status": "In Development",
+        "client": "Manufacturing Companies"
+      }
+    ]
+  },
+  "footer": {
+    "company": "Cuthours",
+    "description": "Building intelligent systems.",
+    "links": {
+      "services": "/services",
+      "contact": "/contact",
+      "about": "/about"
+    },
+    "social": {
+      "linkedin": "https://linkedin.com/company/cuthours",
+      "twitter": "https://twitter.com/cuthours",
+      "github": "https://github.com/cuthours"
+    },
+    "copyright": "© 2025 Cuthours. All rights reserved."
   }
 }

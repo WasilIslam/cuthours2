@@ -38,16 +38,6 @@ export default function CaseStudyPage({ params }: CaseStudyPageProps) {
                   <p className="font-simple text-xl md:text-2xl text-[var(--color-secondary)] mb-8">
                     {caseStudy.description}
                   </p>
-                  {caseStudy.metric && (
-                    <div className="bg-gradient-to-r from-black to-gray-800 text-white p-6 rounded-xl inline-block">
-                      <div className="font-highlight text-3xl md:text-4xl font-bold mb-2">
-                        {caseStudy.metric}
-                      </div>
-                      <div className="font-simple text-sm opacity-90">
-                        {caseStudy.metric_label || 'Improvement'}
-                      </div>
-                    </div>
-                  )}
                 </div>
                 <div className="relative">
                   <div 
@@ -69,62 +59,144 @@ export default function CaseStudyPage({ params }: CaseStudyPageProps) {
               
               {/* Challenge */}
               <div className="lg:col-span-2 space-y-12">
+                {caseStudy.client === "AI-gen" && (
+                  <>
                 <div>
                   <h2 className="font-highlight text-2xl md:text-3xl font-bold text-black mb-6">
                     The Challenge
                   </h2>
                   <div className="prose prose-lg max-w-none">
                     <p className="font-simple text-lg text-[var(--color-secondary)] leading-relaxed mb-4">
-                      {caseStudy.client} was facing significant operational inefficiencies that were impacting their growth and productivity. Their existing processes were manual, time-consuming, and prone to errors.
+                          Educational institutions were struggling with creating high-quality course content efficiently. Teachers spent countless hours developing course materials, lesson plans, and assessments manually.
+                        </p>
+                        <p className="font-simple text-lg text-[var(--color-secondary)] leading-relaxed mb-4">
+                          The process was time-consuming and often resulted in inconsistent content quality. Educators needed a way to generate comprehensive course materials quickly while maintaining educational standards.
                     </p>
                     <p className="font-simple text-lg text-[var(--color-secondary)] leading-relaxed">
-                      The organization needed a sophisticated solution that could automate their workflows while maintaining the flexibility to adapt to their unique business requirements.
+                          AI-gen approached us to develop an automated course generation platform that could help teachers create engaging, comprehensive course content in minutes rather than weeks.
                     </p>
                   </div>
                 </div>
 
-                {/* Solution */}
                 <div>
                   <h2 className="font-highlight text-2xl md:text-3xl font-bold text-black mb-6">
                     Our Solution
                   </h2>
                   <div className="prose prose-lg max-w-none">
                     <p className="font-simple text-lg text-[var(--color-secondary)] leading-relaxed mb-4">
-                      We developed a comprehensive AI-powered automation system specifically tailored to {caseStudy.client}'s operational needs. The solution integrated seamlessly with their existing infrastructure while providing advanced analytics and optimization capabilities.
+                          We built an AI-powered course generation platform that uses advanced natural language processing and educational content algorithms to create comprehensive course materials.
+                        </p>
+                        <p className="font-simple text-lg text-[var(--color-secondary)] leading-relaxed mb-4">
+                          The platform can generate lesson plans, quizzes, assignments, and supplementary materials based on subject matter, grade level, and learning objectives. Teachers can customize the content and add their own materials as needed.
                     </p>
                     <p className="font-simple text-lg text-[var(--color-secondary)] leading-relaxed">
-                      {caseStudy.description} The implementation resulted in significant time savings and improved operational efficiency across all departments.
+                          The system includes features like difficulty adjustment, content personalization, and automatic assessment generation, making it a complete teaching assistant.
                     </p>
                   </div>
                 </div>
 
-                {/* Results */}
                 <div>
                   <h2 className="font-highlight text-2xl md:text-3xl font-bold text-black mb-6">
                     Results & Impact
                   </h2>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    {caseStudy.metric && (
+                        <div className="bg-gray-50 p-6 rounded-lg border border-gray-200">
+                          <div className="font-highlight text-3xl font-bold text-black mb-2">
+                            30+
+                          </div>
+                          <div className="font-simple text-sm text-[var(--color-secondary)]">
+                            Active Teachers
+                          </div>
+                        </div>
+                        <div className="bg-gray-50 p-6 rounded-lg border border-gray-200">
+                          <div className="font-highlight text-3xl font-bold text-black mb-2">
+                            95%
+                          </div>
+                          <div className="font-simple text-sm text-[var(--color-secondary)]">
+                            Time Saved
+                          </div>
+                        </div>
                       <div className="bg-gray-50 p-6 rounded-lg border border-gray-200">
                         <div className="font-highlight text-3xl font-bold text-black mb-2">
-                          {caseStudy.metric}
+                            500+
+                          </div>
+                          <div className="font-simple text-sm text-[var(--color-secondary)]">
+                            Courses Generated
+                          </div>
+                        </div>
+                        <div className="bg-gray-50 p-6 rounded-lg border border-gray-200">
+                          <div className="font-highlight text-3xl font-bold text-black mb-2">
+                            4.8/5
                         </div>
                         <div className="font-simple text-sm text-[var(--color-secondary)]">
-                          {caseStudy.metric_label || 'Overall Improvement'}
+                            Teacher Satisfaction
+                          </div>
                         </div>
                       </div>
-                    )}
-                    <div className="bg-gray-50 p-6 rounded-lg border border-gray-200">
-                      <div className="font-highlight text-3xl font-bold text-black mb-2">
-                        99.9%
+                    </div>
+                  </>
+                )}
+
+                {caseStudy.client === "Automating BookingKoala and Jobber" && (
+                  <>
+                    <div>
+                      <h2 className="font-highlight text-2xl md:text-3xl font-bold text-black mb-6">
+                        The Challenge
+                      </h2>
+                      <div className="prose prose-lg max-w-none">
+                        <p className="font-simple text-lg text-[var(--color-secondary)] leading-relaxed mb-4">
+                          Service-based businesses using BookingKoala and Jobber were facing inventory management challenges. Manual tracking of supplies, equipment, and resources led to frequent stockouts and inefficient operations.
+                        </p>
+                        <p className="font-simple text-lg text-[var(--color-secondary)] leading-relaxed mb-4">
+                          The disconnect between booking systems and inventory management created operational bottlenecks. Businesses needed real-time visibility into their resources while managing customer appointments seamlessly.
+                        </p>
+                        <p className="font-simple text-lg text-[var(--color-secondary)] leading-relaxed">
+                          The client required an AI-powered solution that could integrate with their existing booking platforms and provide intelligent inventory optimization.
+                        </p>
                       </div>
-                      <div className="font-simple text-sm text-[var(--color-secondary)]">
-                        System Uptime
+                    </div>
+
+                    <div>
+                      <h2 className="font-highlight text-2xl md:text-3xl font-bold text-black mb-6">
+                        Our Solution
+                      </h2>
+                      <div className="prose prose-lg max-w-none">
+                        <p className="font-simple text-lg text-[var(--color-secondary)] leading-relaxed mb-4">
+                          We developed an AI-powered inventory management system that integrates seamlessly with BookingKoala and Jobber platforms. The system uses machine learning algorithms to predict inventory needs based on booking patterns and historical data.
+                        </p>
+                        <p className="font-simple text-lg text-[var(--color-secondary)] leading-relaxed mb-4">
+                          The platform provides real-time inventory tracking, automated reorder alerts, and optimization recommendations. It analyzes booking trends to suggest optimal stock levels and prevent both stockouts and overstocking.
+                        </p>
+                        <p className="font-simple text-lg text-[var(--color-secondary)] leading-relaxed">
+                          Advanced analytics help businesses make data-driven decisions about inventory management, reducing waste and improving operational efficiency.
+                        </p>
+                      </div>
+                    </div>
+
+                    <div>
+                      <h2 className="font-highlight text-2xl md:text-3xl font-bold text-black mb-6">
+                        Results & Impact
+                      </h2>
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div className="bg-gray-50 p-6 rounded-lg border border-gray-200">
+                          <div className="font-highlight text-3xl font-bold text-black mb-2">
+                            40%
+                          </div>
+                          <div className="font-simple text-sm text-[var(--color-secondary)]">
+                            Inventory Cost Reduction
+                          </div>
+                        </div>
+                        <div className="bg-gray-50 p-6 rounded-lg border border-gray-200">
+                          <div className="font-highlight text-3xl font-bold text-black mb-2">
+                            99%
+                          </div>
+                          <div className="font-simple text-sm text-[var(--color-secondary)]">
+                            Stock Accuracy
                       </div>
                     </div>
                     <div className="bg-gray-50 p-6 rounded-lg border border-gray-200">
                       <div className="font-highlight text-3xl font-bold text-black mb-2">
-                        20+
+                            25+
                       </div>
                       <div className="font-simple text-sm text-[var(--color-secondary)]">
                         Hours Saved Weekly
@@ -132,14 +204,94 @@ export default function CaseStudyPage({ params }: CaseStudyPageProps) {
                     </div>
                     <div className="bg-gray-50 p-6 rounded-lg border border-gray-200">
                       <div className="font-highlight text-3xl font-bold text-black mb-2">
-                        100%
+                            0
+                          </div>
+                          <div className="font-simple text-sm text-[var(--color-secondary)]">
+                            Stockout Incidents
+                          </div>
+                        </div>
                       </div>
-                      <div className="font-simple text-sm text-[var(--color-secondary)]">
-                        Error Reduction
+                    </div>
+                  </>
+                )}
+
+                {caseStudy.client === "Carbonfootprint.store" && (
+                  <>
+                    <div>
+                      <h2 className="font-highlight text-2xl md:text-3xl font-bold text-black mb-6">
+                        The Challenge
+                      </h2>
+                      <div className="prose prose-lg max-w-none">
+                        <p className="font-simple text-lg text-[var(--color-secondary)] leading-relaxed mb-4">
+                          Carbonfootprint.store wanted to create an innovative platform for businesses and individuals to offset their carbon emissions by purchasing carbon credits. However, they faced challenges in creating a user-friendly marketplace that could handle complex carbon credit transactions.
+                        </p>
+                        <p className="font-simple text-lg text-[var(--color-secondary)] leading-relaxed mb-4">
+                          The platform needed to integrate with various carbon credit providers, handle different types of credits, and provide transparent tracking of environmental impact. Manual processes were inefficient and prone to errors.
+                        </p>
+                        <p className="font-simple text-lg text-[var(--color-secondary)] leading-relaxed">
+                          They needed a robust e-commerce platform specifically designed for carbon credit trading with advanced analytics and reporting capabilities.
+                        </p>
+                      </div>
+                    </div>
+
+                    <div>
+                      <h2 className="font-highlight text-2xl md:text-3xl font-bold text-black mb-6">
+                        Our Solution
+                      </h2>
+                      <div className="prose prose-lg max-w-none">
+                        <p className="font-simple text-lg text-[var(--color-secondary)] leading-relaxed mb-4">
+                          We developed a comprehensive carbon credit marketplace platform that connects buyers with verified carbon credit providers. The platform features an intuitive interface for browsing and purchasing carbon credits from various projects worldwide.
+                        </p>
+                        <p className="font-simple text-lg text-[var(--color-secondary)] leading-relaxed mb-4">
+                          The system includes advanced features like impact tracking, certificate generation, and detailed analytics showing the environmental benefits of each purchase. Smart algorithms help users find the most suitable carbon credits based on their needs and budget.
+                        </p>
+                        <p className="font-simple text-lg text-[var(--color-secondary)] leading-relaxed">
+                          Integration with payment processors and automated certificate delivery makes the entire process seamless for both buyers and sellers of carbon credits.
+                        </p>
+                      </div>
+                    </div>
+
+                    <div>
+                      <h2 className="font-highlight text-2xl md:text-3xl font-bold text-black mb-6">
+                        Results & Impact
+                      </h2>
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div className="bg-gray-50 p-6 rounded-lg border border-gray-200">
+                          <div className="font-highlight text-3xl font-bold text-black mb-2">
+                            1000+
+                          </div>
+                          <div className="font-simple text-sm text-[var(--color-secondary)]">
+                            Carbon Credits Sold
+                          </div>
+                        </div>
+                        <div className="bg-gray-50 p-6 rounded-lg border border-gray-200">
+                          <div className="font-highlight text-3xl font-bold text-black mb-2">
+                            50+
+                          </div>
+                          <div className="font-simple text-sm text-[var(--color-secondary)]">
+                            Partner Projects
+                          </div>
+                        </div>
+                        <div className="bg-gray-50 p-6 rounded-lg border border-gray-200">
+                          <div className="font-highlight text-3xl font-bold text-black mb-2">
+                            98%
+                          </div>
+                          <div className="font-simple text-sm text-[var(--color-secondary)]">
+                            Transaction Success Rate
+                          </div>
+                        </div>
+                        <div className="bg-gray-50 p-6 rounded-lg border border-gray-200">
+                          <div className="font-highlight text-3xl font-bold text-black mb-2">
+                            85%
+                          </div>
+                          <div className="font-simple text-sm text-[var(--color-secondary)]">
+                            Customer Satisfaction
                       </div>
                     </div>
                   </div>
                 </div>
+                  </>
+                )}
               </div>
 
               {/* Sidebar */}
@@ -155,15 +307,35 @@ export default function CaseStudyPage({ params }: CaseStudyPageProps) {
                     </div>
                     <div>
                       <div className="font-simple text-sm font-medium text-black mb-1">Industry</div>
-                      <div className="font-simple text-sm text-[var(--color-secondary)]">Technology & Automation</div>
+                      <div className="font-simple text-sm text-[var(--color-secondary)]">
+                        {caseStudy.client === "AI-gen" && "Education Technology"}
+                        {caseStudy.client === "Automating BookingKoala and Jobber" && "Service Industry & Business Management"}
+                        {caseStudy.client === "Carbonfootprint.store" && "Environmental & Sustainability"}
+                      </div>
                     </div>
                     <div>
                       <div className="font-simple text-sm font-medium text-black mb-1">Duration</div>
-                      <div className="font-simple text-sm text-[var(--color-secondary)]">3-6 months</div>
+                      <div className="font-simple text-sm text-[var(--color-secondary)]">
+                        {caseStudy.client === "AI-gen" && "4 months"}
+                        {caseStudy.client === "Automating BookingKoala and Jobber" && "6 months"}
+                        {caseStudy.client === "Carbonfootprint.store" && "5 months"}
+                      </div>
                     </div>
                     <div>
                       <div className="font-simple text-sm font-medium text-black mb-1">Team Size</div>
-                      <div className="font-simple text-sm text-[var(--color-secondary)]">4-6 specialists</div>
+                      <div className="font-simple text-sm text-[var(--color-secondary)]">
+                        {caseStudy.client === "AI-gen" && "3 AI Engineers + 2 Educators"}
+                        {caseStudy.client === "Automating BookingKoala and Jobber" && "4 Full-stack Developers"}
+                        {caseStudy.client === "Carbonfootprint.store" && "5 Specialists"}
+                      </div>
+                    </div>
+                    <div>
+                      <div className="font-simple text-sm font-medium text-black mb-1">Technologies</div>
+                      <div className="font-simple text-sm text-[var(--color-secondary)]">
+                        {caseStudy.client === "AI-gen" && "Python, OpenAI GPT, React, Node.js"}
+                        {caseStudy.client === "Automating BookingKoala and Jobber" && "Python, Machine Learning, APIs, React"}
+                        {caseStudy.client === "Carbonfootprint.store" && "Next.js, Stripe, PostgreSQL, AWS"}
+                      </div>
                     </div>
                   </div>
                 </div>

@@ -60,11 +60,6 @@ export default function CaseStudyCard({ caseStudy, size = 'small', className = '
         {/* Content overlay */}
         <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4 md:p-6">
           <div className="flex items-center mb-2 md:mb-3">
-            <div className={`${size === 'large' ? 'w-5 h-5 md:w-7 md:h-7' : 'w-4 h-4 md:w-5 md:h-5'} bg-white rounded mr-3 flex items-center justify-center transition-transform duration-300 ${isHovered ? 'scale-110' : ''}`}>
-              {size === 'large' && (
-                <div className="w-2.5 h-2.5 md:w-3.5 md:h-3.5 bg-black rounded"></div>
-              )}
-            </div>
             <span className={`font-simple ${size === 'large' ? 'text-sm md:text-base' : 'text-sm md:text-base'} text-white font-medium transition-transform duration-300 ${isHovered ? 'translate-x-1' : ''}`}>
               {caseStudy.client}
             </span>
