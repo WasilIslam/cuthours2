@@ -8,7 +8,6 @@
     "brand": "Cuthours",
     "pages": [
       { "href": "/", "label": "Home", "id": "home" },
-      { "href": "/services", "label": "Services", "id": "services" },
       { "href": "/projects", "label": "Projects", "id": "projects" },
       { "href": "/ai", "label": "Cuthours.ai", "id": "chat" },
       { "href": "/contact", "label": "Contact", "id": "contact" },
@@ -36,8 +35,8 @@
   },
   "case_studies": [
     {
-      "client": "AI-gen",
-      "description": "Automated course generation tool used by 30+ teachers",
+      "client": "Course-Gen",
+      "description": "Automated course generation tool.",
       "image": "school_art2.webp"
     },
     {
@@ -46,7 +45,7 @@
       "image": "https://images.unsplash.com/photo-1586448317606-cb1ec00298fc?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
     },
     {
-      "client": "Carbonfootprint store",
+      "client": "Carbonfootprint.store",
       "description": "Developed carbonfootprint store to buy carbon credits.",
       "image": "https://images.unsplash.com/photo-1661177408925-c4229d256f10?q=80&w=1975&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
     }
@@ -123,21 +122,21 @@
         "role": "Full-stack Developer",
         "bio": "Full-stack developer focused on modern web technologies and scalable architectures.",
         "image": "/team/alex.jpg",
-        "linkedin": "https://linkedin.com/in/alexchen"
+        "linkedin": "https://linkedin.com/in/-"
       },
       {
         "name": "Muhammad Saboor",
         "role": "AI Research Engineer",
         "bio": "AI Research Engineer with a passion for building intelligent systems.",
-        "image": "/team/sarah.jpg",
-        "linkedin": "https://linkedin.com/in/sarahjohnson"
+        "image": "/team/saboor.jpg",
+        "linkedin": "https://www.linkedin.com/in/muhammad-saboor-008801301/"
       },
       {
         "name": "Abdul Aziz",
         "role": "Automation Tester",
         "bio": "Testing is very important in the world of software development. Abdul Aziz makes sure that the automation is working as expected.",
-        "image": "/team/mike.jpg",
-        "linkedin": "https://linkedin.com/in/mikerodriguez"
+        "image": "/team/aziz.jpg",
+        "linkedin": "https://linkedin.com/in/aziz"
       }
     ]
   },
@@ -300,11 +299,10 @@
     "links": {
       "services": "/services",
       "contact": "/contact",
-      "about": "/about"
+      "projects": "/projects"
     },
     "social": {
-      "linkedin": "https://linkedin.com/company/cuthours",
-      "twitter": "https://twitter.com/cuthours",
+      "linkedin": "https://linkedin.com/company/cuthoursdotcom",
       "github": "https://github.com/cuthours"
     },
     "copyright": "© 2025 Cuthours. All rights reserved."

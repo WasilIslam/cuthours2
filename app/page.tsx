@@ -102,7 +102,7 @@ export default function Home() {
                   href={config.clients.list_links[index]}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group flex flex-col items-center justify-center p-4 rounded-lg transition-all duration-300 hover:bg-gray-50 hover:scale-105"
+                  className="group flex flex-col items-center justify-center p-4 rounded-lg transition-all duration-300 "
                 >
                   {config.clients.show_images && config.clients.list_images && (
                     <div className="relative w-full h-16 md:h-20 mb-3 flex items-center justify-center">
@@ -250,8 +250,8 @@ export default function Home() {
                     </a>
                   </li>
                   <li>
-                    <a href={config.footer.links.about} className="font-simple text-[var(--color-secondary)] hover:text-black transition-colors">
-                      About
+                    <a href={config.footer.links.projects} className="font-simple text-[var(--color-secondary)] hover:text-black transition-colors">
+                      Projects
                     </a>
                   </li>
                 </ul>
@@ -264,11 +264,6 @@ export default function Home() {
                   <li>
                     <a href={config.footer.social.linkedin} target="_blank" rel="noopener noreferrer" className="font-simple text-[var(--color-secondary)] hover:text-black transition-colors">
                       LinkedIn
-                    </a>
-                  </li>
-                  <li>
-                    <a href={config.footer.social.twitter} target="_blank" rel="noopener noreferrer" className="font-simple text-[var(--color-secondary)] hover:text-black transition-colors">
-                      Twitter
                     </a>
                   </li>
                   <li>

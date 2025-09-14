@@ -3,7 +3,7 @@ import Layout from "@/components/Layout";
 export default function Services() {
   return (
     <Layout>
-      <section className="relative min-h-screen">
+      <section className="relative">
         <div className="px-4 md:px-8 lg:px-12 py-16 md:py-24">
           <div className="w-full">
             <h1 className="font-highlight text-5xl md:text-6xl font-normal text-black mb-6 leading-tight">
